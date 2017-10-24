@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record model="ir.ui.view" id="purchase_order_form_mod">
+      <field name="name">x_jos.purhcase.order.form.mod</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref="purchase.purchase_order_form"/>
+      <field name="priority">99</field>
+      <field name="arch" type="xml">
+        <xpath expr="//header" position="inside">
+          <field name="x_retrieved" invisible="1"/>
+          <button name="%(action_retrieve_desc)d" type="action" string="Retrieve Desc" class="oe_highlight" attrs="{'invisible':['|',('x_retrieved','=',True),('state','in',('purchase','done','cancel'))]}"/>
+        </xpath>
+      </field>
+    </record>
+</odoo>
